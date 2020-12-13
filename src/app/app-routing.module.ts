@@ -5,6 +5,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { RoccoComponent } from './rocco/rocco.component';
 import { UsercreateComponent } from './usercreate/usercreate.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
+import {UserssComponent} from './userss/userss.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'rocco', component: RoccoComponent},
   {path: 'user.create', component: UsercreateComponent},
   {path: 'user/:id', component: UserdetailComponent},
+  {path: 'userss', component: UserssComponent},
   {path: '', redirectTo: '/rocco', pathMatch: 'full'},
 ];
 

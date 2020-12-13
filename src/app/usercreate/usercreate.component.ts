@@ -9,17 +9,21 @@ import {Router} from '@angular/router';
 })
 export class UsercreateComponent implements OnInit {
 
-  username = '';
-  password = '';
+  jmeno = '';
+  heslo = '';
 
-  constructor(private readonly userService: UsersService, private router: Router) { }
+  constructor(
+      private readonly usersService: UsersService,
+      private readonly router: Router
+  ) { }
 
-  ngOnInit(): void { }
-
-  createU(): void{
-    this.userService.createUser(this.username, this.password).subscribe(
+  create(): void {
+    this.usersService.create(this.jmeno, this.heslo).subscribe(
         user => this.router.navigateByUrl(`/user/${user.id}`)
     );
+  }
+
+  ngOnInit(): void {
   }
 
 }

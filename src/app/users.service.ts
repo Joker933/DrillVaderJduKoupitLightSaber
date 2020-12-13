@@ -5,39 +5,52 @@ import {Observable, of} from 'rxjs';
 
 export interface IUserEntity {
   id: number;
-  username: string;
-  password: string;
+  jmeno: string;
+  heslo: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
-  private id = 0;
-  private users: IUserEntity[] = [];
 
-  constructor() { }
+  private id = 1;
+  private users: IUserEntity[] = [
+    {id: 3, jmeno: 'ChuraqVojta', heslo: 'Churaq'}
+  ];
+
+  constructor() {
+  }
 
   getAllUsers(): Observable<IUserEntity[]> {
     return of(this.users);
   }
 
-  createUser(noveJmeno: string, noveHeslo: string): Observable<IUserEntity> {
-
-    const novejUzivatel: IUserEntity = {id: this.id, username: noveJmeno, password: noveHeslo};
-    if (this.users.find(u => u.username === noveJmeno)) {
-      console.log("Tento Uzivatel jiz Existuje Bratre");
-    } else {
-      this.id = this.id + 1;
-      this.users.push(novejUzivatel);
-      console.log(novejUzivatel);
-      return of(novejUzivatel);
+  getUserById(id: number): Observable<IUserEntity> {
+    let user: IUserEntity;
+    for (const u of this.users) {
+      if (id === u.id) {
+        user = u;
+        break;
+      }
     }
+    return of(user);
   }
 
-  getUserById(idNumber: number): Observable<IUserEntity> {
-    return of(this.users.find(u => u.id === this.id));
-
+  create(newjmeno: string, newheslo: string): Observable<IUserEntity> {
+    const newUser: IUserEntity = {id: this.id++, jmeno: newjmeno, heslo: newheslo};
+    this.users.push(newUser);
+    return of(newUser);
   }
 
+
+  edit(id: number, jmeno: string): Observable<IUserEntity> {
+    for (const u of this.users) {
+      if (u.id === id) {
+        u.jmeno = jmeno
+        return of(u);
+      }
+    }
+    return of(null);
+  }
 }

@@ -9,6 +9,7 @@ import { RoccoComponent } from './rocco/rocco.component';
 import {FormsModule} from '@angular/forms';
 import { UsercreateComponent } from './usercreate/usercreate.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
+import { UserssComponent } from './userss/userss.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     AboutUsComponent,
     RoccoComponent,
     UsercreateComponent,
-    UserdetailComponent
+    UserdetailComponent,
+    UserssComponent
   ],
   imports: [
     BrowserModule,
