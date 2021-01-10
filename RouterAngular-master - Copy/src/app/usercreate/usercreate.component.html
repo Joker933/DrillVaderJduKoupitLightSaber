@@ -1,0 +1,22 @@
+<p>usercreate works!</p>
+<h1>Register here:</h1>
+
+<div class="register">
+
+    <div class="form-row">
+
+        <div class="col">
+            <input name="name" type="name" [(ngModel)]="jmeno"  class="form-control" placeholder="Username">
+        </div>
+
+        <div class="col">
+            <input name="password" type="password" [(ngModel)]="heslo"  class="form-control" placeholder="Password">
+        </div>
+
+        <div class="col-auto">
+            <button type="submit" (click)="create()" class="btn btn-primary mb-2">Register</button>
+        </div>
+
+    </div>
+
+</div>
