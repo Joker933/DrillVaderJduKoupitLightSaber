@@ -9,7 +9,7 @@
     <tbody>
     <tr *ngFor="let user of users" [routerLink]="'/user/' + user.id">
         <th scope="row">{{user.id}}</th>
-        <td>{{user.jmeno | pipe}}</td>
+        <td>{{user.jmeno | pipe: 10: "/.."}}</td>
         <td>{{user.heslo}}</td>
     </tr>
     </tbody>

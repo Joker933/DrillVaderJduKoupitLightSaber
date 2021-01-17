@@ -1,4 +1,9 @@
 <form (ngSubmit)="edit()">
-    <input name="username" [(ngModel)]="jmeno">
+    <input required minlength="4" maxlength="20" #JmenoUzivatel="ngModel" name="name" type="name" [(ngModel)]="jmeno"  class="form-control" placeholder="Username">
+    <div *ngIf="JmenoUzivatel.invalid && JmenoUzivatel.touched">
+        <span *ngIf="JmenoUzivatel.errors.required">Napis Jmeno</span>
+        <span *ngIf="JmenoUzivatel.errors.minlength">Jmeno moc kratke</span>
+        <span *ngIf="JmenoUzivatel.errors.maxlength">Jmeno moc dlouhe</span>
+    </div>
     <button class="btn btn-success">Zmenit</button>
 </form>
