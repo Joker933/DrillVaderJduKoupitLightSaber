@@ -1,0 +1,8 @@
+<router-outlet></router-outlet>
+<div class="d-flex flex-row flex-wrap justify-content-between bg-info mb-3" style="width: 100vw;">
+    <div *ngFor="let Karta of karticky" class="border p-2" (click)="otocit(Karta)"
+         style="cursor: pointer; height: 100px; width: 100px; overflow: hidden">
+        <span *ngIf="Karta.otoceno">{{Karta.ikonka}}</span>
+    </div>
+</div>
+
